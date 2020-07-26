@@ -36,10 +36,11 @@ class UserDetail(generics.RetrieveAPIView):
 
 
 @api_view(['GET'])
-def api_root(request, fromat=None):
+def api_root(request, format=None):
     return Response({
         'user': reverse('user-list', request=request, format=format),
-        'snippets': reverse('snippet-list', request=request, fromat=format)
+        'snippets': reverse('snippet-list', request=request, format=format),
+        'snippets-highlight': reverse('snippet-highlight', request=request, format=format, kwargs={'pk': 1}),
     })
 
 

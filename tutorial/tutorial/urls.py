@@ -30,7 +30,7 @@ urlpatterns = format_suffix_patterns([
     ),
     path(
         'snippets/<int:pk>/',
-        views.SnippetDetail.as_view(),
+        views.SnippetDetail.as_view(),    # 因為他這裏，只吃 function, 所以你不能給 class, 他提供一個方法去處理， class -> function
         name='snippet-detail'
     ),
     path(
@@ -49,3 +49,17 @@ urlpatterns = format_suffix_patterns([
         name='user-detail'
     )
 ])
+'''
+def as_view():
+
+    def function(request):
+        if request.method == 'GET':
+            return self.retrieve(request)
+
+        if request.method == 'DELETE':
+            return self.destroy(request)
+
+        if request.method == 'PUT':
+            return self.update(request)
+    return function
+'''
