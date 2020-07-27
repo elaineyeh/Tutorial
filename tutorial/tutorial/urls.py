@@ -50,6 +50,7 @@ urlpatterns = format_suffix_patterns([
     )
 ])
 '''
+
 def as_view():
 
     def function(request):
